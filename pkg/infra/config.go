@@ -4,7 +4,8 @@ import (
 	"io/ioutil"
 
 	"github.com/gogo/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/msp"
+	//"github.com/hyperledger/fabric-protos-go/msp"
+	"github.com/hyperledger/fabric/protos/msp"
 	"github.com/pkg/errors"
 	"gopkg.in/yaml.v2"
 )

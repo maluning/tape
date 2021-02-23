@@ -1,10 +1,9 @@
 package infra_test
 
 import (
-	"github.com/hyperledger/fabric-protos-go/peer"
 	"github.com/hyperledger/fabric-sdk-go/pkg/fab/mocks"
-	. "github.com/onsi/ginkgo"
-	. "github.com/onsi/gomega"
+	//"github.com/hyperledger/fabric-protos-go/peer"
+	"github.com/hyperledger/fabric/protos/peer"
 	log "github.com/sirupsen/logrus"
 	"tape/pkg/infra"
 )

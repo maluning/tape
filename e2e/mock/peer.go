@@ -3,7 +3,8 @@ package mock
 import (
 	"context"
 
-	"github.com/hyperledger/fabric-protos-go/peer"
+	//"github.com/hyperledger/fabric-protos-go/peer"
+	"github.com/hyperledger/fabric/protos/peer"
 )
 
 type Peer struct {

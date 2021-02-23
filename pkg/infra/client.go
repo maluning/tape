@@ -5,11 +5,14 @@ import (
 	"crypto/tls"
 	"time"
 
-	"github.com/hyperledger/fabric-protos-go/orderer"
-	"github.com/hyperledger/fabric-protos-go/peer"
 	"github.com/hyperledger/fabric/core/comm"
+	//"github.com/hyperledger/fabric-protos-go/orderer"
+	//"github.com/hyperledger/fabric-protos-go/peer"
+	"github.com/hyperledger/fabric/protos/orderer"
+	"github.com/hyperledger/fabric/protos/peer"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
+	gm_x509 "github.com/zhigui-projects/gm-crypto/x509"
 	"google.golang.org/grpc"
 )
 
@@ -20,7 +23,7 @@ func CreateGRPCClient(node Node) (*comm.GRPCClient, error) {
 	}
 	config := comm.ClientConfig{}
 	config.Timeout = 5 * time.Second
-	config.SecOpts = comm.SecureOptions{
+	config.SecOpts = &comm.SecureOptions{
 		UseTLS:            false,
 		RequireClientCert: false,
 		ServerRootCAs:     certs,
@@ -38,6 +41,8 @@ func CreateGRPCClient(node Node) (*comm.GRPCClient, error) {
 		}
 	}
 
+	// use Sm2
+	gm_x509.InitX509("SM2")
 	grpcClient, err := comm.NewGRPCClient(config)
 	//to do: unit test for this error, current fails to make case for this
 	if err != nil {
@@ -80,7 +85,7 @@ func DailConnection(node Node, logger *log.Logger) (*grpc.ClientConn, error) {
 	var connError error
 	var conn *grpc.ClientConn
 	for i := 1; i <= 3; i++ {
-		conn, connError = gRPCClient.NewConnection(node.Addr, func(tlsConfig *tls.Config) { tlsConfig.InsecureSkipVerify = true })
+		conn, connError = gRPCClient.NewConnection(node.Addr, "", func(tlsConfig *tls.Config) { tlsConfig.InsecureSkipVerify = true })
 		if connError == nil {
 			return conn, nil
 		} else {
@@ -96,7 +101,7 @@ func CreateOrdererDeliverClient(node Node) (orderer.AtomicBroadcast_DeliverClien
 		return nil, err
 	}
 
-	conn, err := gRPCClient.NewConnection(node.Addr, func(tlsConfig *tls.Config) { tlsConfig.InsecureSkipVerify = true })
+	conn, err := gRPCClient.NewConnection(node.Addr, "", func(tlsConfig *tls.Config) { tlsConfig.InsecureSkipVerify = true })
 	if err != nil {
 		return nil, err
 	}

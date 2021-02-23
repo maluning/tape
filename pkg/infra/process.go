@@ -6,8 +6,10 @@ import (
 	"time"
 
 	"github.com/gogo/protobuf/proto"
-	"github.com/hyperledger/fabric-protos-go/common"
-	"github.com/hyperledger/fabric/protoutil"
+	//"github.com/hyperledger/fabric-protos-go/common"
+	"github.com/hyperledger/fabric/protos/common"
+	protoutil "github.com/hyperledger/fabric/protos/utils"
+	// "github.com/hyperledger/fabric/protoutil"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 )
@@ -204,7 +206,7 @@ func MockOrdererOnly(configPath string, num int, logger *log.Logger) error {
 	for i := 0; i < num; i++ {
 		nonce := []byte("nonce-abc-12345")
 		creator, _ := crypto.Serialize()
-		txid := protoutil.ComputeTxID(nonce, creator)
+		txid, _ := protoutil.ComputeTxID(nonce, creator)
 
 		txType := common.HeaderType_ENDORSER_TRANSACTION
 		chdr := &common.ChannelHeader{
@@ -510,7 +512,7 @@ func EnvelopeSize(configPath string, num int, logger *log.Logger) error {
 
 	nonce := []byte("nonce-abc-12345")
 	creator, _ := crypto.Serialize()
-	txid := protoutil.ComputeTxID(nonce, creator)
+	txid, _ := protoutil.ComputeTxID(nonce, creator)
 
 	txType := common.HeaderType_ENDORSER_TRANSACTION
 	chdr := &common.ChannelHeader{
@@ -556,7 +558,7 @@ func DiskWrite(configPath string, num int, logger *log.Logger) error {
 	}
 	nonce := []byte("nonce-abc-12345")
 	creator, _ := crypto.Serialize()
-	txid := protoutil.ComputeTxID(nonce, creator)
+	txid, _ := protoutil.ComputeTxID(nonce, creator)
 
 	txType := common.HeaderType_ENDORSER_TRANSACTION
 	chdr := &common.ChannelHeader{

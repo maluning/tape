@@ -117,6 +117,7 @@ General:
             # fully configurable. Changing these defaults requires coordination
             # SHA2 is hardcoded in several places, not only BCCSP
             Hash: SHA2
+            #Hash: SM3
             Security: 256
             # Location of key store. If this is unset, a location will be
             # chosen using: 'LocalMSPDir'/keystore
