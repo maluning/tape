@@ -49,15 +49,12 @@ type Crypto struct {
 
 func (s *Crypto) Sign(message []byte) ([]byte, error) {
 	//ri, si, err := ecdsa.Sign(rand.Reader, s.PrivKey, digest(message))
-	//signature, err := s.PrivKey.Sign(rand.Reader, digest(message), nil)
-	//signature, err := s.PrivKey.Sign(rand.Reader, digest(message), nil)
-	//signature, err := primitive.Sm2Crypto.Sign(s.PrivKey, digest(message), nil)
 	signature, err := new(gosm.GoSm2).Sign(s.PrivKey, digest(message), nil)
 	if err != nil {
 		return nil, err
 	}
 
-	//isTrue, _ := new(gosm.GoSm2).Verify(&s.PrivKey.Sm2PublicKey, signature, message, nil)
+	//isTrue, _ := new(gosm.GoSm2).Verify(&s.PrivKey.Sm2PublicKey, signature, digest(message), nil)
 	//if !isTrue {
 	//	fmt.Errorf("验证签名错误")
 	//}
