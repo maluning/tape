@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"time"
 
-	//"github.com/hyperledger/fabric-protos-go/orderer"
-	//"github.com/hyperledger/fabric-protos-go/peer"
 	"github.com/hyperledger/fabric/protos/orderer"
 	"github.com/hyperledger/fabric/protos/peer"
 	"github.com/pkg/errors"

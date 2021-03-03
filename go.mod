@@ -8,9 +8,8 @@ require (
 	github.com/gogo/protobuf v1.3.2
 	github.com/golang/protobuf v1.4.2
 	github.com/hashicorp/go-version v1.2.0 // indirect
-	github.com/hyperledger/fabric v1.4.10
+	github.com/hyperledger/fabric v1.4.6
 	github.com/hyperledger/fabric-amcl v0.0.0-20200128223036-d1aa2665426a // indirect
-	//github.com/hyperledger/fabric-protos-go v0.0.0-20200424173316-dd554ba3746e
 	github.com/hyperledger/fabric-sdk-go v1.0.0-beta1.0.20200317135226-e71412ff3db1
 	github.com/konsorten/go-windows-terminal-sequences v1.0.3 // indirect
 	github.com/kr/pretty v0.2.0 // indirect
@@ -24,6 +23,8 @@ require (
 	github.com/spf13/viper v1.4.0 // indirect
 	github.com/stretchr/objx v0.2.0 // indirect
 	github.com/sykesm/zap-logfmt v0.0.2 // indirect
+	github.com/zhigui-projects/fabric v1.4.4
+	//github.com/zhigui-projects/fabric v1.4.6-gm
 
 	// GM
 	github.com/zhigui-projects/gm-crypto v0.0.0-20200719051209-13ea42f5b80c
@@ -40,4 +41,4 @@ require (
 	gopkg.in/yaml.v2 v2.3.0
 )
 
-//replace github.com/zhigui-projects/fabric v1.4.6 => ../zhigui-projects/fabric
+replace github.com/hyperledger/fabric v1.4.6 => github.com/zhigui-projects/fabric v1.4.6-gm

@@ -1,30 +1,20 @@
 package infra
 
 import (
-	//"github.com/zhigui-projects/gm-go/sm2"
-	"github.com/zhigui-projects/gm-go/sm3"
-
-	//"encoding/asn1"
-
-	//"crypto/sha256"
 	"crypto/x509"
-	//"encoding/asn1"
 	"encoding/base64"
 	"encoding/pem"
+	"github.com/zhigui-projects/gm-go/sm3"
 	"io/ioutil"
 	"math/big"
 
 	"github.com/hyperledger/fabric/bccsp/utils"
 	"github.com/hyperledger/fabric/common/crypto"
-	//"github.com/hyperledger/fabric-protos-go/common"
 	"github.com/hyperledger/fabric/protos/common"
 	"github.com/pkg/errors"
 
 	gm_x509 "github.com/zhigui-projects/gm-crypto/x509"
 	"github.com/zhigui-projects/gm-plugins/gosm"
-	// GM
-	//"github.com/zhigui-projects/gm-go/sm2"
-	//"github.com/zhigui-projects/gm-go/sm3"
 	"github.com/zhigui-projects/gm-plugins/primitive"
 )
 

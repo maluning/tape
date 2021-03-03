@@ -6,10 +6,8 @@ import (
 	"time"
 
 	"github.com/gogo/protobuf/proto"
-	//"github.com/hyperledger/fabric-protos-go/common"
 	"github.com/hyperledger/fabric/protos/common"
 	protoutil "github.com/hyperledger/fabric/protos/utils"
-	// "github.com/hyperledger/fabric/protoutil"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 )
